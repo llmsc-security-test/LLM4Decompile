@@ -54,5 +54,11 @@ exec "$@"' > /entrypoint.sh  \
  && chmod +x /entrypoint.sh
 
 # Set container entrypoint
-ENTRYPOINT ["/entrypoint.sh"]
 SHELL ["/bin/bash"]
+
+# --- Auto-Generated Entrypoint Configuration ---
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+RUN mkdir -p /var/log && touch /var/log/app.log
+EXPOSE 7860
+ENTRYPOINT ["/entrypoint.sh"]
